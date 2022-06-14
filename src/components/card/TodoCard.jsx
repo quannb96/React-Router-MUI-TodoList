@@ -13,7 +13,6 @@ const useStyles = makeStyles({
     borderRadius: "10px",
     marginBottom: "15px",
   },
-
   title: {
     fontSize: "14px",
     color: "#000000",

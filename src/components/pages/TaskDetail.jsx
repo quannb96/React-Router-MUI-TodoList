@@ -180,99 +180,97 @@ function TaskDetail(props) {
     <div>
       <CssBaseline />
       <Container px={0} py={2}>
-        <Grid container style={{ height: "500px", overflow: "hidden" }}>
-          <form
-            onSubmit={handleSubmit}
-            className={classes.root}
-            noValidate
-            autoComplete="off"
-          >
-            <div>
-              <label className={classes.label}>Title</label>
-              <Input
-                value={payload[titleField]}
-                onChange={handleChangeTitle}
-                className={classes.input}
-                placeholder={todoDetail.payload.title}
+        <form
+          onSubmit={handleSubmit}
+          className={classes.root}
+          noValidate
+          autoComplete="off"
+        >
+          <div>
+            <label className={classes.label}>Title</label>
+            <Input
+              value={payload[titleField]}
+              onChange={handleChangeTitle}
+              className={classes.input}
+              placeholder={todoDetail.payload.title}
+            />
+          </div>
+          <div>
+            <label className={classes.label}>Creator</label>
+            <Input
+              value={payload[creatorField]}
+              onChange={handleChangeCreator}
+              className={classes.input}
+              placeholder={todoDetail.payload.creator}
+            />
+          </div>
+          <div>
+            <label className={classes.label}>Created at</label>
+            <Input
+              value={payload[createdAtField]}
+              onChange={handleChangeCreatedAt}
+              className={classes.input}
+              placeholder={todoDetail.payload.createdAt}
+            />
+          </div>
+          <div>
+            <label className={classes.label}>Description</label>
+            <Input
+              value={payload[descriptionField]}
+              onChange={handleChangeDescription}
+              className={classes.input}
+              placeholder={todoDetail.payload.description}
+            />
+          </div>
+          <FormControl component="fieldset" className={classes.radioForm}>
+            <RadioGroup
+              row
+              aria-label="position"
+              name="position"
+              defaultValue="top"
+              value={radioValue}
+              onChange={handleChange}
+            >
+              <FormControlLabel
+                className={classes.radioForm}
+                value="New"
+                control={<Radio color="primary" />}
+                label="New"
               />
-            </div>
-            <div>
-              <label className={classes.label}>Creator</label>
-              <Input
-                value={payload[creatorField]}
-                onChange={handleChangeCreator}
-                className={classes.input}
-                placeholder={todoDetail.payload.creator}
+              <FormControlLabel
+                className={classes.radioForm}
+                value="Doing"
+                control={<Radio color="primary" />}
+                label="Doing"
               />
-            </div>
-            <div>
-              <label className={classes.label}>Created at</label>
-              <Input
-                value={payload[createdAtField]}
-                onChange={handleChangeCreatedAt}
-                className={classes.input}
-                placeholder={todoDetail.payload.createdAt}
+              <FormControlLabel
+                className={classes.radioForm}
+                value="Done"
+                control={<Radio color="primary" />}
+                label="Done"
               />
-            </div>
-            <div>
-              <label className={classes.label}>Description</label>
-              <Input
-                value={payload[descriptionField]}
-                onChange={handleChangeDescription}
-                className={classes.input}
-                placeholder={todoDetail.payload.description}
-              />
-            </div>
-            <FormControl component="fieldset" className={classes.radioForm}>
-              <RadioGroup
-                row
-                aria-label="position"
-                name="position"
-                defaultValue="top"
-                value={radioValue}
-                onChange={handleChange}
-              >
-                <FormControlLabel
-                  className={classes.radioForm}
-                  value="New"
-                  control={<Radio color="primary" />}
-                  label="New"
-                />
-                <FormControlLabel
-                  className={classes.radioForm}
-                  value="Doing"
-                  control={<Radio color="primary" />}
-                  label="Doing"
-                />
-                <FormControlLabel
-                  className={classes.radioForm}
-                  value="Done"
-                  control={<Radio color="primary" />}
-                  label="Done"
-                />
-              </RadioGroup>
-            </FormControl>
-            <div className={classes.buttonDiv}>
-              <Button type="submit" className={classes.button}>
-                Save
-              </Button>
-              <Button
-                type="button"
-                className={classes.button}
-                onClick={handleReset}
-              >
-                Reset
-              </Button>
-              <Button
-                type="button"
-                className={classes.button}
-                onClick={handleDelete}
-              >
-                Delete
-              </Button>
-            </div>
-          </form>
-        </Grid>
+            </RadioGroup>
+          </FormControl>
+          <div className={classes.buttonDiv}>
+            <Button type="submit" className={classes.button}>
+              Save
+            </Button>
+            <Button
+              type="button"
+              className={classes.button}
+              onClick={handleReset}
+            >
+              Reset
+            </Button>
+            <Button
+              type="button"
+              className={classes.button}
+              onClick={handleDelete}
+            >
+              Delete
+            </Button>
+          </div>
+        </form>
       </Container>
     </div>
   );

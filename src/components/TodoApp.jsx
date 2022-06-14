@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
-import SideBar from "./sidebar/SideBar";
 import { Grid } from "@material-ui/core";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { TodoListContext } from "./TodoListContext";
 import Header from "./header/Header";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SideBar from "./sidebar/SideBar";
 import AllTask from "./pages/AllTask";
 import DoingTask from "./pages/DoingTask";
 import DoneTask from "./pages/DoneTask";
@@ -45,6 +45,9 @@ function TodoApp() {
   }, []);
 
   const handleSearchValue = (searchValue) => {
+    if (searchValue === "") {
+      alert("Invalid Search");
+    }
     const filteredCard = todoList.filter((card) => {
       return (
         card.payload.title.toLowerCase().includes(searchValue.toLowerCase()) ||

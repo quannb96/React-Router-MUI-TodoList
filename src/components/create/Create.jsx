@@ -78,7 +78,6 @@ function Create() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (
       payload[(titleField, creatorField, createdAtField, descriptionField)]
         .length <= 1
@@ -86,6 +85,7 @@ function Create() {
       alert("Invalid");
       return;
     }
+    // add NewTask to todoList, update at localStorage >>>
     const newTodoList = [
       {
         id: v4(),
@@ -129,56 +129,47 @@ function Create() {
     <div>
       <CssBaseline />
       <Container px={0} py={2}>
-        <Grid container style={{ height: "500px", overflow: "hidden" }}>
-          <form
-            action="/"
-            method="post"
-            onSubmit={handleSubmit}
-            className={classes.root}
-            noValidate
-            autoComplete="off"
-          >
-            <div>
-              <label className={classes.label}>Title</label>
-              <Input
-                value={payload[titleField]}
-                onChange={handleChangeTitle}
-                className={classes.input}
-                placeholder="Title"
-              />
-            </div>
-            <div>
-              <label className={classes.label}>Creator</label>
-              <Input
-                value={payload[creatorField]}
-                onChange={handleChangeCreator}
-                className={classes.input}
-                placeholder="Name of Creator"
-              />
-            </div>
-            <div>
-              <label className={classes.label}>Created at</label>
-              <Input
-                value={payload[createdAtField]}
-                onChange={handleChangeCreatedAt}
-                className={classes.input}
-                placeholder="08-02-2021 07:45:20"
-              />
-            </div>
-            <div>
-              <label className={classes.label}>Description</label>
-              <Input
-                value={payload[descriptionField]}
-                onChange={handleChangeDescription}
-                className={classes.input}
-                placeholder="Description Details"
-              />
-            </div>
-            <Button type="submit" className={classes.button}>
-              Save
-            </Button>
-          </form>
-        </Grid>
+        <form onSubmit={handleSubmit} className={classes.root}>
+          <div>
+            <label className={classes.label}>Title</label>
+            <Input
+              value={payload[titleField]}
+              onChange={handleChangeTitle}
+              className={classes.input}
+              placeholder="Title"
+            />
+          </div>
+          <div>
+            <label className={classes.label}>Creator</label>
+            <Input
+              value={payload[creatorField]}
+              onChange={handleChangeCreator}
+              className={classes.input}
+              placeholder="Name of Creator"
+            />
+          </div>
+          <div>
+            <label className={classes.label}>Created at</label>
+            <Input
+              value={payload[createdAtField]}
+              onChange={handleChangeCreatedAt}
+              className={classes.input}
+              placeholder="08-02-2021 07:45:20"
+            />
+          </div>
+          <div>
+            <label className={classes.label}>Description</label>
+            <Input
+              value={payload[descriptionField]}
+              onChange={handleChangeDescription}
+              className={classes.input}
+              placeholder="Description Details"
+            />
+          </div>
+          <Button type="submit" className={classes.button}>
+            Save
+          </Button>
+        </form>
       </Container>
     </div>
   );

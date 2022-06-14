@@ -7,8 +7,6 @@ import { useNavigate } from "react-router";
 import usePagination from "../pagination/Pagination";
 
 function AllTask({ searchList }) {
-  // const { updateTodoList } = useContext(TodoListContext);
-
   let [page, setPage] = useState(1);
   const PER_PAGE = 12;
 
@@ -20,17 +18,8 @@ function AllTask({ searchList }) {
     _DATA.jump(p);
   };
   if (searchList === undefined || searchList.length === 0) {
-    alert("No result");
+    alert("No result for Search");
   }
-
-  // useEffect(() => {
-  //   const storedTodoList = localStorage.getItem("TODO_LIST_QUAN");
-  //   if (storedTodoList === null) {
-  //     updateTodoList([]);
-  //     return;
-  //   }
-  //   updateTodoList(JSON.parse(storedTodoList));
-  // }, [page]);
 
   const navigate = useNavigate();
   const gotoDetail = (item) => {
